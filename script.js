@@ -187,6 +187,7 @@ if (contactForm && contactFormStatus) {
       if (response.ok) {
         contactForm.reset();
         setContactStatus("Message sent successfully. Thank you.", "is-success");
+        window.alert("Message sent successfully.");
       } else {
         let errorMessage = "Message could not be sent right now. Please try again.";
         try {
