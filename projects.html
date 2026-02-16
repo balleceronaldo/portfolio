@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI-assisted project portfolio featuring Flask and FastAPI systems for worship planning, hazardous waste management, and local information workflows.">
+  <meta name="author" content="Engr. Ronaldo Estoque Ballecer">
+  <meta name="theme-color" content="#1E6AA8">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Engr. Ronaldo Estoque Ballecer | Work Profiles">
+  <meta property="og:description" content="AI-assisted Flask and FastAPI projects for worship planning, hazardous waste operations, and local information management.">
+  <meta property="og:image" content="assets/python_skill_map.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Engr. Ronaldo Estoque Ballecer | Work Profiles">
+  <meta name="twitter:description" content="AI-assisted Flask and FastAPI projects for worship planning, hazardous waste operations, and local information management.">
+  <meta name="twitter:image" content="assets/python_skill_map.svg">
+  <title>Engr. Ronaldo Estoque Ballecer | Work Profiles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#top">Skip to content</a>
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+  <div class="page-bg" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html">R. E. BALLECER</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">Theme</button>
+  </header>
+
+  <main id="top">
+    <section class="hero reveal">
+      <p class="eyebrow">Selected AI-Assisted Projects</p>
+      <h1>
+        Applied
+        <span>software projects</span>
+        for real operations.
+      </h1>
+      <p class="intro">
+        These projects were built with AI-assisted development support and grounded in actual operational
+        and compliance workflows. They combine practical UI design, reliable data handling, and secure access control.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="index.html">Back to Home</a>
+        <a class="btn btn-ghost" href="#worship-song-app">Jump to Projects</a>
+      </div>
+    </section>
+
+    <section class="panel reveal">
+      <div class="panel-head">
+        <h2>Project Index</h2>
+        <p>Each card links to a detailed profile section.</p>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <p class="tag">Flask • SQLAlchemy • Migrations • RBAC</p>
+          <h3>Worship Song App</h3>
+          <p>Worship planning workflow with chord-aware transposition, set management, and robust import/export controls.</p>
+          <div class="project-links">
+            <a href="#worship-song-app">Read Details</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <p class="tag">Flask • Compliance Tracking • Reporting</p>
+          <h3>Hazardous Waste Management System</h3>
+          <p>Waste log, manifest chain-of-custody, and compliance reporting platform with secure login and deployable runtime options.</p>
+          <div class="project-links">
+            <a href="#hazwaste-system">Read Details</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <p class="tag">FastAPI • SQLite • Advanced Search • Exports</p>
+          <h3>Local Information Management App</h3>
+          <p>Structured records app with ranked search, role permissions, admin tools, and analytics/export features.</p>
+          <div class="project-links">
+            <a href="#fastapi-info-app">Read Details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="worship-song-app" class="panel reveal project-detail">
+      <h2>Worship Song App</h2>
+      <p><strong>Stack:</strong> Flask, SQLAlchemy, Flask-Migrate, SQLite (PostgreSQL-ready via <code>DATABASE_URL</code>)</p>
+      <p><strong>Core Features:</strong> Song library (title, author, key, tempo, themes, lead sheet), chord transposition (including slash/extended chords), worship-set builder, and TXT/PDF export with preview page.</p>
+      <p><strong>Access Control:</strong> Session-based login with role separation: <code>worship_leader</code> (full write/import/export) and <code>musician</code> (read-only). First-time setup route for initial leader account at <code>/auth/setup</code>.</p>
+      <p><strong>Data Import/Export:</strong> JSON/CSV export and import with duplicate policies (replace/skip/rename/error) plus <code>validate_only=true</code> dry-run mode.</p>
+      <p><strong>Engineering Quality:</strong> Automated tests for chord transposition behavior and PDF pagination/song-boundary rules.</p>
+      <p><strong>AI Use:</strong> AI-assisted coding support was used to accelerate implementation, refactoring, and test coverage hardening.</p>
+    </section>
+
+    <section id="hazwaste-system" class="panel reveal project-detail">
+      <h2>Hazardous Waste Management System</h2>
+      <p><strong>Stack:</strong> Flask with secure auth/session flow, CSRF protection, rate limiting, SMTP reset support, and hashed credentials.</p>
+      <p><strong>Operational Model:</strong> Designed for one organization acting as waste collector/generator, internal storage/TSD operator, and outbound shipper to destination TSD through transporters.</p>
+      <p><strong>Core Features:</strong> Source/transporter/TSD master data, waste master-detail logs with auto-summed total weight, manifest and chain-of-custody tracking, compliance contact records (PCO + managing head), and periodic reports (monthly/quarterly/semiannual/yearly).</p>
+      <p><strong>Exports:</strong> CSV, XLSX, and PDF reporting output for compliance documentation workflows.</p>
+      <p><strong>Security and Runtime:</strong> Forced password change for default admin, login/reset rate limits, forgot-password flow with local logging fallback when SMTP is unavailable.</p>
+      <p><strong>Deployment:</strong> Local release zip with <code>run_hazwaste.bat</code>, plus production paths via <code>wsgi.py</code>, Gunicorn/Procfile, Docker, and <code>/healthz</code>.</p>
+      <p><strong>AI Use:</strong> AI-assisted development was used to speed up workflow design, report logic iterations, and deployment packaging consistency.</p>
+    </section>
+
+    <section id="fastapi-info-app" class="panel reveal project-detail">
+      <h2>Local Information Management App (FastAPI)</h2>
+      <p><strong>Stack:</strong> FastAPI + SQLite with template-driven UI and custom theming.</p>
+      <p><strong>Core Features:</strong> Entry management (title, content, type, location, category), category/type lifecycle operations (rename/delete/reassign), role-based access (<code>viewer</code>, <code>editor</code>, <code>admin</code>), admin user tools, branding controls, and export features (CSV/JSON/PDF).</p>
+      <p><strong>Search:</strong> Relevance-ranked matching with title priority, multi-word any-word matching, and advanced query syntax support for quoted phrases, <code>OR</code>, and exclude operators (<code>-term</code> / <code>-"phrase"</code>).</p>
+      <p><strong>Analytics:</strong> Integrated stats page with chart/table summaries for quick operational review.</p>
+      <p><strong>Project Structure:</strong> Backend modules (<code>main.py</code>, <code>models.py</code>, <code>database.py</code>), templates under <code>app/templates</code>, stylesheet <code>style.css</code>, and seed loader <code>sample_loader.py</code>.</p>
+      <p><strong>AI Use:</strong> AI-assisted coding contributed to feature planning, query behavior implementation, and UI/data-flow refinement.</p>
+    </section>
+
+    <section class="panel reveal">
+      <h2>Credentials Snapshot</h2>
+      <p><strong>Name:</strong> Engr. Ronaldo Estoque Ballecer</p>
+      <p><strong>Education:</strong> Bachelor of Engineering (Chemical), Saint Louis University - Baguio City, finished 2004.</p>
+      <p><strong>Licenses:</strong> PRC Chemical Engineering License (valid until Apr 2026) and Pollution Control Officer Accreditation (valid until Oct 2026).</p>
+      <p><strong>Languages:</strong> English, Filipino</p>
+    </section>
+
+    <section id="project-template" class="panel reveal">
+      <h2>Project Focus</h2>
+      <p>These implementations prioritize reliability, role-safe workflows, and export-ready documentation in real-world operations.</p>
+      <p><strong>Common engineering themes:</strong> role-based access control, data integrity checks, practical reporting, and deployment paths for both local and production environments.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> ballecerdigital. All rights reserved. Designed with Codex AI.</p>
+  </footer>
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">Top</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
