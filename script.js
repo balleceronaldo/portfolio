@@ -145,3 +145,68 @@ if (sections.length && sectionNavLinks.length) {
 
   sections.forEach((section) => sectionObserver.observe(section));
 }
+
+const contactForm = document.querySelector(".contact-form");
+const contactFormStatus = document.querySelector(".contact-form-status");
+
+if (contactForm && contactFormStatus) {
+  const submitButton = contactForm.querySelector("button[type='submit']");
+  const defaultButtonText = submitButton ? submitButton.textContent : "";
+  let isSubmitting = false;
+
+  const setContactStatus = (message, statusClass = "") => {
+    contactFormStatus.className = "contact-form-status";
+    if (statusClass) {
+      contactFormStatus.classList.add(statusClass);
+    }
+    contactFormStatus.textContent = message;
+  };
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (isSubmitting) {
+      return;
+    }
+
+    isSubmitting = true;
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+    }
+    setContactStatus("Sending message...", "is-loading");
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        contactForm.reset();
+        setContactStatus("Message sent successfully. Thank you.", "is-success");
+      } else {
+        let errorMessage = "Message could not be sent right now. Please try again.";
+        try {
+          const payload = await response.json();
+          if (Array.isArray(payload?.errors) && payload.errors[0]?.message) {
+            errorMessage = payload.errors[0].message;
+          }
+        } catch (parseError) {
+          // Keep generic message when API error details are unavailable.
+        }
+        setContactStatus(errorMessage, "is-error");
+      }
+    } catch (error) {
+      setContactStatus("Network error. Please check your connection and retry.", "is-error");
+    } finally {
+      isSubmitting = false;
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = defaultButtonText;
+      }
+    }
+  });
+}

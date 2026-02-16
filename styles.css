@@ -607,6 +607,29 @@ code {
   justify-self: start;
 }
 
+.contact-form button:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.contact-form-status {
+  min-height: 1.2rem;
+  margin: 0.15rem 0 0;
+  font-size: 0.92rem;
+}
+
+.contact-form-status.is-loading {
+  color: var(--muted);
+}
+
+.contact-form-status.is-success {
+  color: #0e7a43;
+}
+
+.contact-form-status.is-error {
+  color: #b02424;
+}
+
 .hp-field {
   position: absolute;
   left: -10000px;
